@@ -29,12 +29,12 @@ const faqs = [
 export const FAQ = () => {
   return (
     <Terminal>
-      <div className="space-y-6">
+      <div className="space-y-6 max-w-full overflow-x-hidden">
         <h2 className="text-xl text-terminal-accent mb-6">Frequently Asked Questions</h2>
-        <Accordion type="single" collapsible className="space-y-4">
+        <Accordion type="single" collapsible className="space-y-4 w-full">
           {faqs.map((faq, index) => (
             <AccordionItem key={index} value={`item-${index}`} className="border-b border-terminal-accent/20">
-              <AccordionTrigger className="text-terminal-purple hover:no-underline">
+              <AccordionTrigger className="text-terminal-purple hover:no-underline text-left pr-4">
                 {faq.question}
               </AccordionTrigger>
               <AccordionContent className="text-terminal-text">
