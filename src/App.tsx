@@ -9,10 +9,12 @@ import { Agents } from './pages/Agents';
 import { Deploy } from './pages/Deploy';
 import { FAQ } from './pages/FAQ';
 import { Twitter, Github } from 'lucide-react';
+import { useIsMobile } from './hooks/use-mobile';
 
 const App = () => {
   const endpoint = clusterApiUrl('mainnet-beta');
   const wallets = [new PhantomWalletAdapter()];
+  const isMobile = useIsMobile();
 
   return (
     <ConnectionProvider endpoint={endpoint}>
@@ -20,12 +22,14 @@ const App = () => {
         <WalletModalProvider>
           <div className="min-h-screen bg-terminal-bg p-6 flex flex-col">
             <div className="max-w-7xl mx-auto flex-grow w-full">
-              <div className="flex flex-col items-center mb-8">
-                <div className="flex items-center gap-4 mb-4">
+              <div className={`${isMobile ? 'flex flex-col items-center' : 'flex justify-between items-center'} mb-8`}>
+                <div className="flex items-center gap-4">
                   <img src="/lovable-uploads/f01e1cf4-6bd0-4499-a264-f04ae080ff5f.png" alt="Genesys Logo" className="w-12 h-12" />
                   <h1 className="text-3xl font-mono text-terminal-text">Genesys AI</h1>
                 </div>
-                <WalletButton />
+                <div className={isMobile ? 'mt-4' : ''}>
+                  <WalletButton />
+                </div>
               </div>
               <Navigation />
               <Routes>
