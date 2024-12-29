@@ -68,20 +68,20 @@ export default {
           "0%, 100%": { opacity: "1" },
           "50%": { opacity: "0" },
         },
-        "fade-in": {
+        typewriter: {
           "0%": {
-            opacity: "0",
-            transform: "translateY(10px)"
+            width: "0%",
+            borderRight: "0.15em solid #1EAEDB",
           },
           "100%": {
-            opacity: "1",
-            transform: "translateY(0)"
-          }
+            width: "100%",
+            borderRight: "0.15em solid transparent",
+          },
         }
       },
       animation: {
         blink: "blink 1s ease-in-out infinite",
-        "fade-in": "fade-in 0.5s ease-out forwards"
+        typewriter: "typewriter 1s steps(20, end) forwards",
       },
     },
   },

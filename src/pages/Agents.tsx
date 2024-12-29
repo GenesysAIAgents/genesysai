@@ -16,13 +16,12 @@ export const Agents = () => {
         <div className="bg-terminal-bg/50 p-4 rounded border border-terminal-accent/20">
           <div className="grid grid-cols-4 gap-4">
             {Object.entries(testAgent).map(([key, value], index) => (
-              <div
-                key={key}
-                className="animate-fade-in"
-                style={{ animationDelay: `${index * 200}ms` }}
-              >
+              <div key={key}>
                 <p className="text-terminal-purple">{key.charAt(0).toUpperCase() + key.slice(1)}</p>
-                <p>{value}</p>
+                <p className="overflow-hidden whitespace-nowrap animate-typewriter" 
+                   style={{ animationDelay: `${index * 500}ms` }}>
+                  {value}
+                </p>
               </div>
             ))}
           </div>
