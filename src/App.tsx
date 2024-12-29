@@ -20,8 +20,8 @@ const App = () => {
         <WalletModalProvider>
           <div className="min-h-screen bg-terminal-bg p-6 flex flex-col">
             <div className="max-w-7xl mx-auto flex-grow w-full">
-              <div className="flex justify-between items-center mb-8">
-                <div className="flex items-center gap-4">
+              <div className="flex flex-col items-center mb-8">
+                <div className="flex items-center gap-4 mb-4">
                   <img src="/lovable-uploads/f01e1cf4-6bd0-4499-a264-f04ae080ff5f.png" alt="Genesys Logo" className="w-12 h-12" />
                   <h1 className="text-3xl font-mono text-terminal-text">Genesys AI</h1>
                 </div>
