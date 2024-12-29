@@ -7,7 +7,6 @@ import { Navigation } from './components/Navigation';
 import { WalletButton } from './components/WalletButton';
 import { Agents } from './pages/Agents';
 import { Deploy } from './pages/Deploy';
-import { Docs } from './pages/Docs';
 import { FAQ } from './pages/FAQ';
 import { Twitter, Github } from 'lucide-react';
 
@@ -32,7 +31,6 @@ const App = () => {
               <Routes>
                 <Route path="/" element={<Agents />} />
                 <Route path="/deploy" element={<Deploy />} />
-                <Route path="/docs" element={<Docs />} />
                 <Route path="/faq" element={<FAQ />} />
               </Routes>
             </div>
