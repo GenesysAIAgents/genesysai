@@ -1,5 +1,11 @@
 import React from 'react';
 import { Terminal } from '../components/Terminal';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const faqs = [
   {
@@ -25,12 +31,18 @@ export const FAQ = () => {
     <Terminal>
       <div className="space-y-6">
         <h2 className="text-xl text-terminal-accent mb-6">Frequently Asked Questions</h2>
-        {faqs.map((faq, index) => (
-          <div key={index} className="border-b border-terminal-accent/20 pb-4 last:border-0">
-            <h3 className="text-terminal-purple mb-2">{faq.question}</h3>
-            <p className="text-terminal-text">{faq.answer}</p>
-          </div>
-        ))}
+        <Accordion type="single" collapsible className="space-y-4">
+          {faqs.map((faq, index) => (
+            <AccordionItem key={index} value={`item-${index}`} className="border-b border-terminal-accent/20">
+              <AccordionTrigger className="text-terminal-purple hover:no-underline">
+                {faq.question}
+              </AccordionTrigger>
+              <AccordionContent className="text-terminal-text">
+                {faq.answer}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
       </div>
     </Terminal>
   );

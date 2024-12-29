@@ -15,22 +15,16 @@ export const Agents = () => {
         <h2 className="text-xl text-terminal-accent mb-4">Active Agents</h2>
         <div className="bg-terminal-bg/50 p-4 rounded border border-terminal-accent/20">
           <div className="grid grid-cols-4 gap-4">
-            <div>
-              <p className="text-terminal-purple">Name</p>
-              <p>{testAgent.name}</p>
-            </div>
-            <div>
-              <p className="text-terminal-purple">Status</p>
-              <p>{testAgent.status}</p>
-            </div>
-            <div>
-              <p className="text-terminal-purple">Type</p>
-              <p>{testAgent.type}</p>
-            </div>
-            <div>
-              <p className="text-terminal-purple">Uptime</p>
-              <p>{testAgent.uptime}</p>
-            </div>
+            {Object.entries(testAgent).map(([key, value], index) => (
+              <div
+                key={key}
+                className="animate-fade-in"
+                style={{ animationDelay: `${index * 200}ms` }}
+              >
+                <p className="text-terminal-purple">{key.charAt(0).toUpperCase() + key.slice(1)}</p>
+                <p>{value}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
