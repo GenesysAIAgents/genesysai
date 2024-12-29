@@ -1,16 +1,45 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Terminal } from '../components/Terminal';
 import { useIsMobile } from '../hooks/use-mobile';
 
-const testAgent = {
-  name: "Genesis-001",
-  status: "Active",
-  type: "Test Agent",
-  uptime: "24h 13m",
+const formatUptime = (startTime: Date) => {
+  const now = new Date();
+  const diff = now.getTime() - startTime.getTime();
+  
+  const hours = Math.floor(diff / (1000 * 60 * 60));
+  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  
+  return `${hours}h ${minutes}m`;
 };
 
 export const Agents = () => {
   const isMobile = useIsMobile();
+  const [uptime, setUptime] = useState('');
+  
+  useEffect(() => {
+    // Set initial time to 8 hours ago
+    const startTime = new Date(Date.now() - 8 * 60 * 60 * 1000);
+    
+    // Update uptime every minute
+    const updateUptime = () => {
+      setUptime(formatUptime(startTime));
+    };
+    
+    // Initial update
+    updateUptime();
+    
+    // Set interval for updates
+    const interval = setInterval(updateUptime, 60000);
+    
+    return () => clearInterval(interval);
+  }, []);
+
+  const testAgent = {
+    name: "Genesis-001",
+    status: "Active",
+    type: "Test Agent",
+    uptime: uptime,
+  };
 
   return (
     <Terminal>
