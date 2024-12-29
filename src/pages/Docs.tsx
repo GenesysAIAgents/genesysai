@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Terminal } from '../components/Terminal';
+import React from 'react';
+import { useEffect } from 'react';
 
 export const Docs = () => {
   useEffect(() => {
@@ -7,10 +7,8 @@ export const Docs = () => {
   }, []);
 
   return (
-    <Terminal>
-      <div className="flex items-center justify-center py-12">
-        <p className="text-terminal-text">Redirecting to documentation...</p>
-      </div>
-    </Terminal>
+    <div className="flex items-center justify-center py-12">
+      <p className="text-terminal-text">Redirecting to documentation...</p>
+    </div>
   );
 };
