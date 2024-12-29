@@ -19,7 +19,7 @@ const App = () => {
 
   return (
     <ConnectionProvider endpoint={endpoint}>
-      <WalletProvider wallets={wallets} autoConnect={false}>
+      <WalletProvider wallets={wallets} autoConnect>
         <WalletModalProvider>
           <div className="min-h-screen bg-terminal-bg p-6 flex flex-col">
             <div className="max-w-7xl mx-auto flex-grow w-full">
