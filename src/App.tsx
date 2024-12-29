@@ -23,8 +23,8 @@ const App = () => {
             <div className="max-w-7xl mx-auto flex-grow w-full">
               <div className="flex justify-between items-center mb-8">
                 <div className="flex items-center gap-4">
-                  <img src="/lovable-uploads/f01e1cf4-6bd0-4499-a264-f04ae080ff5f.png" alt="Genesys AI Logo" className="w-12 h-12" />
-                  <h1 className="text-3xl font-mono text-terminal-text">Genesys AI</h1>
+                  <img src="/lovable-uploads/f01e1cf4-6bd0-4499-a264-f04ae080ff5f.png" alt="Gensys Logo" className="w-12 h-12" />
+                  <h1 className="text-3xl font-mono text-terminal-text">Gensys</h1>
                 </div>
                 <WalletButton />
               </div>
