@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useIsMobile } from '../hooks/use-mobile';
 
 const tabs = [
   { name: 'Agents', path: '/' },
@@ -10,9 +11,10 @@ const tabs = [
 
 export const Navigation = () => {
   const location = useLocation();
+  const isMobile = useIsMobile();
 
   return (
-    <nav className="flex space-x-4 mb-6">
+    <nav className={`flex ${isMobile ? 'flex-col' : 'flex-row'} ${isMobile ? 'space-y-2' : 'space-x-4'} mb-6`}>
       {tabs.map((tab) => (
         tab.external ? (
           <a
@@ -20,7 +22,9 @@ export const Navigation = () => {
             href={tab.path}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 rounded transition-colors text-terminal-text hover:bg-terminal-accent/20"
+            className={`px-4 py-2 rounded transition-colors text-terminal-text hover:bg-terminal-accent/20 ${
+              isMobile ? 'w-full text-left' : ''
+            }`}
           >
             {tab.name}
           </a>
@@ -32,7 +36,7 @@ export const Navigation = () => {
               location.pathname === tab.path
                 ? 'bg-terminal-accent text-white'
                 : 'text-terminal-text hover:bg-terminal-accent/20'
-            }`}
+            } ${isMobile ? 'w-full text-left' : ''}`}
           >
             {tab.name}
           </Link>
