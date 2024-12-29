@@ -13,23 +13,16 @@ const formatUptime = (startTime: Date) => {
   return `${hours}h ${minutes}m ${seconds}s`;
 };
 
+// Fixed deployment time - 8 hours ago from when the code was deployed
+const DEPLOYMENT_TIME = new Date('2024-03-19T00:00:00Z');
+
 export const Agents = () => {
   const isMobile = useIsMobile();
   const [uptime, setUptime] = useState('');
-  const [startTime] = useState(() => {
-    const savedTime = localStorage.getItem('agentStartTime');
-    if (savedTime) {
-      return new Date(parseInt(savedTime));
-    }
-    // If no saved time exists, set current time - 8h and save it
-    const initialTime = new Date(Date.now() - 8 * 60 * 60 * 1000);
-    localStorage.setItem('agentStartTime', initialTime.getTime().toString());
-    return initialTime;
-  });
   
   useEffect(() => {
     const updateUptime = () => {
-      const formattedUptime = formatUptime(startTime);
+      const formattedUptime = formatUptime(DEPLOYMENT_TIME);
       console.log('Updating uptime:', formattedUptime); // Debug log
       setUptime(formattedUptime);
     };
@@ -41,7 +34,7 @@ export const Agents = () => {
     const interval = setInterval(updateUptime, 1000);
     
     return () => clearInterval(interval);
-  }, [startTime]);
+  }, []);
 
   const testAgent = {
     name: "Genesis-001",
