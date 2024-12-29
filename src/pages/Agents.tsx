@@ -13,8 +13,8 @@ const formatUptime = (startTime: Date) => {
   return `${hours}h ${minutes}m ${seconds}s`;
 };
 
-// Fixed deployment time - 8 hours ago from when the code was deployed
-const DEPLOYMENT_TIME = new Date('2024-03-19T00:00:00Z');
+// Fixed deployment time - 8 hours ago from current time
+const DEPLOYMENT_TIME = new Date(Date.now() - 8 * 60 * 60 * 1000);
 
 export const Agents = () => {
   const isMobile = useIsMobile();
