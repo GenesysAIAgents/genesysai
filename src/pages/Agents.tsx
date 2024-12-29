@@ -15,12 +15,9 @@ const formatUptime = (startTime: Date) => {
 export const Agents = () => {
   const isMobile = useIsMobile();
   const [uptime, setUptime] = useState('');
+  const [startTime] = useState(() => new Date(Date.now() - 8 * 60 * 60 * 1000));
   
   useEffect(() => {
-    // Set initial time to 8 hours ago
-    const startTime = new Date(Date.now() - 8 * 60 * 60 * 1000);
-    
-    // Update uptime every minute
     const updateUptime = () => {
       setUptime(formatUptime(startTime));
     };
@@ -28,11 +25,11 @@ export const Agents = () => {
     // Initial update
     updateUptime();
     
-    // Set interval for updates
-    const interval = setInterval(updateUptime, 60000);
+    // Update every second instead of every minute for smoother updates
+    const interval = setInterval(updateUptime, 1000);
     
     return () => clearInterval(interval);
-  }, []);
+  }, [startTime]);
 
   const testAgent = {
     name: "Genesis-001",

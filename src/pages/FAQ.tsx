@@ -23,6 +23,18 @@ const faqs = [
   {
     question: "Can agents learn from each other?",
     answer: "Yes, through our proprietary knowledge sharing protocol, agents can exchange learned patterns and insights, leading to continuous improvement across the network while maintaining individual specializations."
+  },
+  {
+    question: "What programming languages does Genesys AI support?",
+    answer: "Genesys AI provides SDKs for Python, JavaScript, and Java. Additional languages can integrate via API."
+  },
+  {
+    question: "Can I deploy agents on edge devices?",
+    answer: "Yes, Genesys AI supports edge deployment for IoT and low-latency applications."
+  },
+  {
+    question: "Is coding required to create agents?",
+    answer: "While coding is optional, advanced users can script custom behaviors for their agents. Non-technical users can rely on the drag-and-drop interface and pre-built templates."
   }
 ];
 
