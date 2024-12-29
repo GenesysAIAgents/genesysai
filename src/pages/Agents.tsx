@@ -14,12 +14,16 @@ export const Agents = () => {
       <div className="space-y-4">
         <h2 className="text-xl text-terminal-accent mb-4">Active Agents</h2>
         <div className="bg-terminal-bg/50 p-4 rounded border border-terminal-accent/20">
-          <div className="grid grid-cols-4 gap-4">
+          <div className="grid grid-cols-4 gap-4 overflow-hidden whitespace-nowrap">
             {Object.entries(testAgent).map(([key, value], index) => (
               <div key={key}>
                 <p className="text-terminal-purple">{key.charAt(0).toUpperCase() + key.slice(1)}</p>
-                <p className="overflow-hidden whitespace-nowrap animate-typewriter" 
-                   style={{ animationDelay: `${index * 500}ms` }}>
+                <p className="animate-typewriter" 
+                   style={{ 
+                     animationDelay: "0ms",
+                     width: "100%",
+                     animationFillMode: "both"
+                   }}>
                   {value}
                 </p>
               </div>

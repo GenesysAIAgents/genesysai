@@ -81,7 +81,7 @@ export default {
       },
       animation: {
         blink: "blink 1s ease-in-out infinite",
-        typewriter: "typewriter 1s steps(20, end) forwards",
+        typewriter: "typewriter 2s steps(40, end) forwards",
       },
     },
   },
