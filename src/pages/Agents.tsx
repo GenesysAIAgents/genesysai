@@ -8,24 +8,27 @@ const formatUptime = (startTime: Date) => {
   
   const hours = Math.floor(diff / (1000 * 60 * 60));
   const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((diff % (1000 * 60)) / 1000);
   
-  return `${hours}h ${minutes}m`;
+  return `${hours}h ${minutes}m ${seconds}s`;
 };
 
 export const Agents = () => {
   const isMobile = useIsMobile();
   const [uptime, setUptime] = useState('');
-  const [startTime] = useState(() => new Date(Date.now() - 8 * 60 * 60 * 1000));
+  const [startTime] = useState(new Date(Date.now() - 8 * 60 * 60 * 1000));
   
   useEffect(() => {
     const updateUptime = () => {
-      setUptime(formatUptime(startTime));
+      const formattedUptime = formatUptime(startTime);
+      console.log('Updating uptime:', formattedUptime); // Debug log
+      setUptime(formattedUptime);
     };
     
     // Initial update
     updateUptime();
     
-    // Update every second instead of every minute for smoother updates
+    // Update every second
     const interval = setInterval(updateUptime, 1000);
     
     return () => clearInterval(interval);
