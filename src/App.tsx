@@ -31,6 +31,9 @@ const App = () => {
                   <WalletButton />
                 </div>
               </div>
+              <p className="text-terminal-text text-lg mb-8 leading-relaxed">
+                Genesys AI integrates the foundational principles of Eliza, the pioneering chatbot framework, and the power of Swarm technology to enable seamless interaction and dynamic cooperation among AI entities.
+              </p>
               <Navigation />
               <Routes>
                 <Route path="/" element={<Agents />} />
