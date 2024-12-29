@@ -46,14 +46,15 @@ const App = () => {
                 <p className="text-terminal-text text-sm">
                   Powered by Eliza and SWARM technology
                 </p>
-                <div className="flex gap-4">
+                <div className="flex items-center gap-4">
+                  <span className="text-terminal-text mr-2">Genesys Socials</span>
                   <a
                     href="https://x.com/GenesysAgents"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-terminal-text hover:text-terminal-accent transition-colors"
                   >
-                    <Twitter size={20} />
+                    <Twitter size={28} />
                   </a>
                   <a
                     href="https://github.com/GenesysTools"
@@ -61,7 +62,7 @@ const App = () => {
                     rel="noopener noreferrer"
                     className="text-terminal-text hover:text-terminal-accent transition-colors"
                   >
-                    <Github size={20} />
+                    <Github size={28} />
                   </a>
                 </div>
               </div>
