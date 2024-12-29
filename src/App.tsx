@@ -9,6 +9,7 @@ import { Agents } from './pages/Agents';
 import { Deploy } from './pages/Deploy';
 import { Docs } from './pages/Docs';
 import { FAQ } from './pages/FAQ';
+import { Twitter, Github } from 'lucide-react';
 
 const App = () => {
   const endpoint = clusterApiUrl('devnet');
@@ -18,8 +19,8 @@ const App = () => {
     <ConnectionProvider endpoint={endpoint}>
       <WalletProvider wallets={wallets} autoConnect>
         <WalletModalProvider>
-          <div className="min-h-screen bg-terminal-bg p-6">
-            <div className="max-w-7xl mx-auto">
+          <div className="min-h-screen bg-terminal-bg p-6 flex flex-col">
+            <div className="max-w-7xl mx-auto flex-grow w-full">
               <div className="flex justify-between items-center mb-8">
                 <div className="flex items-center gap-4">
                   <img src="/lovable-uploads/f01e1cf4-6bd0-4499-a264-f04ae080ff5f.png" alt="Genesys AI Logo" className="w-12 h-12" />
@@ -35,6 +36,31 @@ const App = () => {
                 <Route path="/faq" element={<FAQ />} />
               </Routes>
             </div>
+            <footer className="mt-12 max-w-7xl mx-auto w-full">
+              <div className="flex justify-between items-center py-4 border-t border-terminal-accent/20">
+                <p className="text-terminal-text text-sm">
+                  Powered by Eliza and SWARM technology
+                </p>
+                <div className="flex gap-4">
+                  <a
+                    href="https://x.com/GenesysAgents"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-terminal-text hover:text-terminal-accent transition-colors"
+                  >
+                    <Twitter size={20} />
+                  </a>
+                  <a
+                    href="https://github.com/genesys/GenesysAIAgents"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-terminal-text hover:text-terminal-accent transition-colors"
+                  >
+                    <Github size={20} />
+                  </a>
+                </div>
+              </div>
+            </footer>
           </div>
         </WalletModalProvider>
       </WalletProvider>
