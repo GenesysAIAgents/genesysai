@@ -56,7 +56,7 @@ const App = () => {
                     <Twitter size={20} />
                   </a>
                   <a
-                    href="https://github.com/genesys/GenesysAIAgents"
+                    href="https://github.com/GenesysTools"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-terminal-text hover:text-terminal-accent transition-colors"
