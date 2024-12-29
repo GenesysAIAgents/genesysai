@@ -1,6 +1,5 @@
 import React from 'react';
 import { Terminal } from '../components/Terminal';
-import { useWallet } from '@solana/wallet-adapter-react';
 
 const testAgent = {
   name: "Genesis-001",
@@ -10,10 +9,6 @@ const testAgent = {
 };
 
 export const Agents = () => {
-  const { wallet, connect, connecting } = useWallet();
-  
-  console.log('Wallet status:', { wallet, connecting }); // Debug log
-
   return (
     <Terminal>
       <div className="space-y-4">
@@ -23,12 +18,12 @@ export const Agents = () => {
             {Object.entries(testAgent).map(([key, value], index) => (
               <div key={key}>
                 <p className="text-terminal-purple">{key.charAt(0).toUpperCase() + key.slice(1)}</p>
-                <p className="text-terminal-text typewriter-text"
+                <p className="overflow-hidden whitespace-nowrap" 
                    style={{ 
-                     animation: `typewriter ${value.length * 0.1}s steps(${value.length}, end)`,
-                     whiteSpace: 'nowrap',
-                     overflow: 'hidden',
-                     borderRight: '0.15em solid #1EAEDB'
+                     animation: `typewriter 2s steps(${value.length * 2}, end) forwards`,
+                     animationDelay: `${index * 500}ms`,
+                     width: "0%",
+                     borderRight: "0.15em solid #1EAEDB"
                    }}>
                   {value}
                 </p>

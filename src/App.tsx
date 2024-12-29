@@ -15,8 +15,6 @@ const App = () => {
   const endpoint = clusterApiUrl('mainnet-beta');
   const wallets = [new PhantomWalletAdapter()];
 
-  console.log('Initializing with endpoint:', endpoint); // Debug log
-
   return (
     <ConnectionProvider endpoint={endpoint}>
       <WalletProvider wallets={wallets} autoConnect>
