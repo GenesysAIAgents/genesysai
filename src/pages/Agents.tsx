@@ -16,7 +16,16 @@ const formatUptime = (startTime: Date) => {
 export const Agents = () => {
   const isMobile = useIsMobile();
   const [uptime, setUptime] = useState('');
-  const [startTime] = useState(new Date(Date.now() - 8 * 60 * 60 * 1000));
+  const [startTime] = useState(() => {
+    const savedTime = localStorage.getItem('agentStartTime');
+    if (savedTime) {
+      return new Date(parseInt(savedTime));
+    }
+    // If no saved time exists, set current time - 8h and save it
+    const initialTime = new Date(Date.now() - 8 * 60 * 60 * 1000);
+    localStorage.setItem('agentStartTime', initialTime.getTime().toString());
+    return initialTime;
+  });
   
   useEffect(() => {
     const updateUptime = () => {
